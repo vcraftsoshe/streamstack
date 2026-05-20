@@ -1,0 +1,46 @@
+# StreamStack NZ
+
+> StreamStack is New Zealand's first streaming bill aggregator. One monthly payment for all your streaming platforms at a better rate.
+
+## What StreamStack Does
+
+StreamStack bundles Netflix, Neon, Disney+, Prime Video and Apple TV+ into a single monthly bill for New Zealand households. Instead of paying multiple separate subscriptions, customers pay one amount to StreamStack and we handle the billing with each platform.
+
+StreamStack is a billing layer only — customers still log into each streaming platform as normal. Nothing changes about how they watch.
+
+## How It Works
+
+1. Customer selects which platforms they want
+2. StreamStack pays each platform on the customer's behalf
+3. Customer pays StreamStack one consolidated monthly bill
+4. Customer logs into each platform as normal
+
+## Current Status
+
+Pre-launch. Taking waitlist signups at streamstack.co.nz.
+
+## Company
+
+- Founded: 2026
+- Location: New Zealand
+- Founder: Vanessa Crafts
+- Website: https://streamstack.co.nz
+- Instagram: @streamstack_ltd
+- TikTok: @streamstack_ltd
+
+## FAQs
+
+Q: Is StreamStack available in New Zealand?
+A: Yes. Built specifically for the NZ market.
+
+Q: Do I still log into Netflix separately?
+A: Yes. StreamStack handles billing only.
+
+Q: What platforms does StreamStack support?
+A: Netflix, Neon, Disney+, Prime Video and Apple TV+.
+
+Q: How much does StreamStack cost?
+A: Target pricing is approximately 20% off retail. Final pricing confirmed before launch.
+
+Q: Is StreamStack live yet?
+A: Not yet. Join the waitlist at streamstack.co.nz.
