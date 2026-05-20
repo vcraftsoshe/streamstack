@@ -277,7 +277,9 @@ footer{padding:56px 5% 36px;background:var(--navy);}
   .hamburger{display:flex;}
   .ncta{display:none;}
   .soc-inner{flex-direction:column;}
-  .ftop{flex-direction:column;}
+  .ftop{flex-wrap:wrap;}
+  .fbrand{width:100%;margin-bottom:8px;}
+  .fcol{flex:1;min-width:120px;}
   .stats{flex-wrap:wrap;gap:22px;}
   .billing-note{flex-direction:column;}
   .builder-wrap{grid-template-columns:1fr;}
@@ -502,15 +504,15 @@ footer{padding:56px 5% 36px;background:var(--navy);}
       <div class="prog-bg"><div class="prog-fill" id="prog-fill"></div></div>
       <div class="t-marks">
         <div class="tm done"><div class="tdot"></div><div class="tlab">Launch</div><div class="tsub">Live now</div></div>
-        <div class="tm done"><div class="tdot"></div><div class="tlab">5,000</div><div class="tsub">Tier 1 ✓</div></div>
+        <div class="tm"><div class="tdot"></div><div class="tlab">5,000</div><div class="tsub">Tier 1</div></div>
         <div class="tm"><div class="tdot"></div><div class="tlab">10,000</div><div class="tsub">Better rate</div></div>
         <div class="tm"><div class="tdot"></div><div class="tlab">20,000</div><div class="tsub">Even better</div></div>
         <div class="tm"><div class="tdot"></div><div class="tlab">25,000</div><div class="tsub">Best rate</div></div>
       </div>
     </div>
     <div class="tcards">
-      <div class="tc un"><div class="tc-top"></div><div class="tc-ico">✅</div><div class="tc-n">Tier 1</div><div class="tc-goal">5K</div><div class="tc-disc lime">Unlocked</div><div class="tc-desc">Base rate negotiated. We're live.</div></div>
-      <div class="tc nx"><div class="tc-top"></div><div class="tc-ico">🔓</div><div class="tc-n">Tier 2. Next</div><div class="tc-goal">10K</div><div class="tc-disc lime">179 to go</div><div class="tc-desc">Better wholesale rate for everyone. Share to unlock faster.</div></div>
+      <div class="tc nx"><div class="tc-top"></div><div class="tc-ico">🔓</div><div class="tc-n">Tier 1. Next</div><div class="tc-goal">5K</div><div class="tc-disc lime">4,753 to go</div><div class="tc-desc">Help us hit 5K signups to unlock our base negotiation rate.</div></div>
+      <div class="tc locked"><div class="tc-top"></div><div class="tc-ico">🔒</div><div class="tc-n">Tier 2</div><div class="tc-goal">10K</div><div class="tc-disc">Locked</div><div class="tc-desc">Better wholesale rate for everyone. Share to unlock faster.</div></div>
       <div class="tc locked"><div class="tc-top"></div><div class="tc-ico">🔒</div><div class="tc-n">Tier 3</div><div class="tc-goal">20K</div><div class="tc-disc">Locked</div><div class="tc-desc">Volume discount improves significantly here.</div></div>
       <div class="tc locked"><div class="tc-top"></div><div class="tc-ico">🔒</div><div class="tc-n">Tier 4. Goal</div><div class="tc-goal">25K</div><div class="tc-disc">Max rate</div><div class="tc-desc">Best negotiating position. Best price for every subscriber.</div></div>
     </div>
@@ -573,7 +575,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
           <div class="sbtns">
             <a class="sbtn" href="https://www.facebook.com/sharer/sharer.php?u=https://streamstack.co.nz" target="_blank">f Facebook</a>
             <a class="sbtn" href="https://www.instagram.com/streamstack_ltd" target="_blank">📸 @streamstack_ltd</a>
-            <a class="sbtn" href="https://www.tiktok.com/@streamstack_ltd" target="_blank">🎵 @streamstack_ltd</a>
+            <a class="sbtn" href="https://www.tiktok.com/@streamstack_ltd" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg> @streamstack_ltd</a>
           </div>
           <p style="font-size:12px;color:var(--grey);margin-top:13px;">Sign up below first to activate your referral code</p>
         </div>
@@ -606,7 +608,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
     </div>
     <div class="shandles">
       <a href="https://www.instagram.com/streamstack_ltd" target="_blank" class="sh"><div class="shico ig">📸</div>@streamstack_ltd</a>
-      <a href="https://www.tiktok.com/@streamstack_ltd" target="_blank" class="sh"><div class="shico tt">🎵</div>@streamstack_ltd</a>
+      <a href="https://www.tiktok.com/@streamstack_ltd" target="_blank" class="sh"><div class="shico tt"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></div>@streamstack_ltd</a>
       <a href="https://www.facebook.com/profile.php?id=61589781279614" target="_blank" class="sh"><div class="shico fb">f</div>streamstack_ltd</a>
     </div>
   </div>
@@ -649,7 +651,7 @@ var T1 = 5000, T2 = 10000;
 // (Find list ID in Klaviyo → Lists → click your list → URL shows the ID)
 var KLAVIYO_KEY = 'pk_Wcz5Pp_05ffec49ddc64c36c72356f2ae8b4dd489';
 var KLAVIYO_LIST_ID = 'TKeL8u';
-  
+
 function fetchKlaviyoCount() {
   if (KLAVIYO_KEY === 'YOUR_PRIVATE_KEY_HERE') return; // skip if not set
   fetch('https://a.klaviyo.com/api/lists/' + KLAVIYO_LIST_ID + '/profiles/?additional-fields[profile]=subscriptions&page[size]=1', {
@@ -668,8 +670,7 @@ function fetchKlaviyoCount() {
   })
   .catch(function(e) { console.log('Klaviyo count fetch failed', e); });
 }
-
-
+function toggleMenu() {
   var menu = document.getElementById('mobile-menu');
   var burger = document.getElementById('hamburger');
   menu.classList.toggle('open');
@@ -701,7 +702,8 @@ function animCount(target) {
 function bar() {
   var f = document.getElementById('prog-fill');
   if (!f) return;
-  var p = 25 + Math.min((count - T1) / (T2 - T1), 1) * 25;
+  // Progress from 0 to T1 (5000) shown across first 25% of bar
+  var p = Math.min(count / T1, 1) * 25;
   f.style.width = p + '%';
 }
 
