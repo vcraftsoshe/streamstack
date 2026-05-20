@@ -506,7 +506,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
       <h2 class="h2">Help Us<br>Negotiate.</h2>
       <p style="color:var(--grey-l);font-size:16px;max-width:540px;margin:.8rem auto 0;line-height:1.6;">Our discount from streaming platforms grows with subscriber volume. Every person on this waitlist gives us more leverage and lowers the price for everyone at launch.</p>
     </div>
-    <div class="prog-lbl">Currently at <strong id="prog-c">247</strong> signups. <span class="lime" id="tier-label">4,753 away from Tier 1 →</span></div>
+    <div class="prog-lbl">Currently at <strong id="prog-c">1</strong> signups. <span class="lime" id="tier-label">4,999 away from Tier 1 →</span></div>
     <div class="prog-track">
       <div class="prog-bg"><div class="prog-fill" id="prog-fill"></div></div>
       <div class="t-marks">
@@ -650,7 +650,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
 </footer>
 
 <script>
-var count = 247;
+var count = 1;
 var T1 = 5000, T2 = 10000;
 // KLAVIYO LIVE COUNT
 // KLAVIYO LIST ID
@@ -658,41 +658,20 @@ var KLAVIYO_LIST_ID = 'XHFsbx';
 // WORKER URL — replace with your Cloudflare Worker URL after deploying
 // See klaviyo-worker.js file for deployment instructions
 
+var WORKER_URL = 'https://streamstack-count.vanessacraftsai.workers.dev';
+
 function fetchKlaviyoCount() {
-  // First restore from localStorage (instant, no flicker)
-  var stored = localStorage.getItem('ss_waitlist_count');
-  if (stored) {
-    var parsed = parseInt(stored);
-    if (parsed > count) {
-      count = parsed;
-      setAll(count);
-      updateTierLabel();
-      bar();
-    }
-  }
-
-  // Then fetch real count from Cloudflare Worker
-  // Replace YOUR_WORKER_URL with your deployed worker URL
-  // e.g. https://streamstack-count.YOUR_SUBDOMAIN.workers.dev
-  var WORKER_URL = 'https://streamstack-count.vanessacraftsai.workers.dev';
-  if (!WORKER_URL) return;
-
   fetch(WORKER_URL, { mode: 'cors' })
     .then(function(r) { return r.json(); })
     .then(function(data) {
-      if (data && data.count && data.count > count) {
+      if (data && data.count) {
         count = data.count;
         setAll(count);
         updateTierLabel();
         bar();
-        saveCount();
       }
     })
     .catch(function(e) { console.log('Worker fetch failed', e); });
-}
-
-function saveCount() {
-  try { localStorage.setItem('ss_waitlist_count', count); } catch(e) {}
 }
 
 function updateTierLabel() {
@@ -800,11 +779,24 @@ function signup() {
   var rl = document.getElementById('ref-link');
   if (rl) rl.value = 'streamstack.co.nz/ref/' + code;
 
-  count++;
-  setAll(count);
-  updateTierLabel();
-  bar();
-  saveCount();
+  // Increment count in Cloudflare KV
+  fetch(WORKER_URL, { method: 'POST', mode: 'cors' })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data && data.count) {
+        count = data.count;
+        setAll(count);
+        updateTierLabel();
+        bar();
+      }
+    })
+    .catch(function(e) {
+      // Fallback: increment locally
+      count++;
+      setAll(count);
+      updateTierLabel();
+      bar();
+    });
 }
 
 function copyRef() {
