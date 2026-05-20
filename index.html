@@ -320,7 +320,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
     <li><a href="#waitlist" onclick="closeMenu()">Join Waitlist</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:12px;">
-    <button class="ncta" onclick="goTo('waitlist')">Get Early Access</button>
+    <button class="ncta" onclick="goTo('waitlist')">Join Waitlist</button>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -599,10 +599,10 @@ footer{padding:56px 5% 36px;background:var(--navy);}
     <p class="wl-sub">Join the waitlist. Be part of the movement saving Kiwis money on streaming, and be first to access StreamStack when we launch.</p>
     <div class="wl-form">
       <input class="wl-in" type="email" id="email" placeholder="your@email.com" />
-      <button class="wl-btn" onclick="signup()">Secure My Spot</button>
+      <button class="wl-btn" onclick="signup()">Join Waitlist</button>
     </div>
     <div class="wl-ok" id="wl-ok">🎉 You're on the list! We'll be in touch when StreamStack launches.</div>
-    <p class="wl-note">No spam. No commitment. Just early access when we launch.</p>
+    <p class="wl-note">No spam. No commitment. Just first access when we launch.</p>
   </div>
 </section>
 
@@ -734,7 +734,13 @@ function signup() {
     return;
   }
 
-  // Push to Klaviyo - subscribe to list directly
+  // Get selected platforms
+  var selectedPlatforms = [];
+  document.querySelectorAll('.pcard.selected').forEach(function(p) {
+    selectedPlatforms.push(p.getAttribute('data-name'));
+  });
+
+  // Push to Klaviyo
   if (window.klaviyo) {
     klaviyo.push(['identify', {
       email: v,
