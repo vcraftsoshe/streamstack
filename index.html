@@ -349,7 +349,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
         <a href="#how" class="btn-g">How It Works</a>
       </div>
       <div class="stats fu d5">
-        <div><div class="sn" id="hero-c">247</div><div class="sl">On the Waitlist</div></div>
+        <div><div class="sn" id="hero-c">1</div><div class="sl">On the Waitlist</div></div>
         <div><div class="sn">$0</div><div class="sl">Setup Cost</div></div>
         <div><div class="sn">1 Bill</div><div class="sl">That's It</div></div>
       </div>
@@ -594,7 +594,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
 <!-- WAITLIST -->
 <section class="waitlist" id="waitlist">
   <div class="inner">
-    <div class="wl-pill"><span class="wl-dot"></span><span id="wl-c">247</span> Kiwis on the waitlist</div>
+    <div class="wl-pill"><span class="wl-dot"></span><span id="wl-c">1</span> Kiwis on the waitlist</div>
     <h2>One Bill.<br><span class="lime">Done.</span></h2>
     <p class="wl-sub">Join the waitlist. Be part of the movement saving Kiwis money on streaming, and be first to access StreamStack when we launch.</p>
     <div class="wl-form" id="wl-form">
@@ -725,12 +725,18 @@ function bar() {
 }
 
 function signup() {
-  var el = document.getElementById('email');
-  var v = el.value.trim();
+  var emailEl = document.getElementById('email');
+  if (!emailEl) return;
+  var v = emailEl.value.trim();
+
+  // Validate email
   if (!v || v.indexOf('@') < 0 || v.indexOf('.') < 0) {
-    el.style.borderColor = '#FF6B6B';
-    el.placeholder = 'Please enter a valid email';
-    setTimeout(function() { el.style.borderColor = ''; el.placeholder = 'your@email.com'; }, 2500);
+    emailEl.style.borderColor = '#FF6B6B';
+    emailEl.placeholder = 'Please enter a valid email';
+    setTimeout(function() { 
+      emailEl.style.borderColor = ''; 
+      emailEl.placeholder = 'your@email.com'; 
+    }, 2500);
     return;
   }
 
@@ -740,7 +746,36 @@ function signup() {
     selectedPlatforms.push(p.getAttribute('data-name'));
   });
 
-  // Push to Klaviyo
+  // Hide form, show success immediately
+  var form = document.getElementById('wl-form');
+  var ok = document.getElementById('wl-ok');
+  if (form) form.style.display = 'none';
+  if (ok) ok.style.display = 'block';
+
+  // Generate referral code
+  var code = v.split('@')[0].replace(/[^a-z0-9]/gi, '').toUpperCase().slice(0, 6) + (Math.floor(Math.random() * 90) + 10);
+  var rl = document.getElementById('ref-link');
+  if (rl) rl.value = 'streamstack.co.nz/ref/' + code;
+
+  // Increment Cloudflare KV counter
+  fetch(WORKER_URL, { method: 'POST', mode: 'cors' })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data && data.count) {
+        count = data.count;
+        setAll(count);
+        updateTierLabel();
+        bar();
+      }
+    })
+    .catch(function() {
+      count++;
+      setAll(count);
+      updateTierLabel();
+      bar();
+    });
+
+  // Klaviyo identify
   if (window.klaviyo) {
     klaviyo.push(['identify', {
       email: v,
@@ -750,17 +785,12 @@ function signup() {
       'Wants Neon': selectedPlatforms.indexOf('Neon') > -1,
       'Wants Disney+': selectedPlatforms.indexOf('Disney+') > -1,
       'Wants Prime Video': selectedPlatforms.indexOf('Prime Video') > -1,
-      'Wants Apple TV+': selectedPlatforms.indexOf('Apple TV+') > -1,
-      'Signup Source': 'StreamStack Website'
+      'Wants Apple TV+': selectedPlatforms.indexOf('Apple TV+') > -1
     }]);
-    klaviyo.push(['track', 'Waitlist Signup', {
-      email: v,
-      platforms: selectedPlatforms,
-      platform_count: selectedPlatforms.length
-    }]);
+    klaviyo.push(['track', 'Waitlist Signup', { email: v, platforms: selectedPlatforms }]);
   }
 
-  // Subscribe to Klaviyo list
+  // Klaviyo list subscribe
   fetch('https://a.klaviyo.com/client/subscriptions/?company_id=Wcz5Pp', {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'revision': '2024-02-15' },
@@ -775,8 +805,7 @@ function signup() {
                 email: v,
                 properties: {
                   platforms_selected: selectedPlatforms.join(', '),
-                  platform_count: selectedPlatforms.length,
-                  signup_source: 'StreamStack Website'
+                  platform_count: selectedPlatforms.length
                 }
               }
             }
@@ -785,36 +814,9 @@ function signup() {
         }
       }
     })
-  }).catch(function(e) { console.log('Subscribe failed', e); });
-
-  // Show success
-  document.getElementById('wl-form').style.display = 'none';
-  document.getElementById('wl-ok').style.display = 'block';
-
-  // Generate referral code from email
-  var code = v.split('@')[0].replace(/[^a-z0-9]/gi, '').toUpperCase().slice(0, 6) + (Math.floor(Math.random() * 90) + 10);
-  var rl = document.getElementById('ref-link');
-  if (rl) rl.value = 'streamstack.co.nz/ref/' + code;
-
-  // Increment count in Cloudflare KV
-  fetch(WORKER_URL, { method: 'POST', mode: 'cors' })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (data && data.count) {
-        count = data.count;
-        setAll(count);
-        updateTierLabel();
-        bar();
-      }
-    })
-    .catch(function(e) {
-      // Fallback: increment locally
-      count++;
-      setAll(count);
-      updateTierLabel();
-      bar();
-    });
+  }).catch(function(e) { console.log('Klaviyo subscribe failed', e); });
 }
+
 
 function copyRef() {
   var v = document.getElementById('ref-link').value;
@@ -892,9 +894,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  setInterval(function() {
-    if (Math.random() > 0.5) { count++; setAll(count); bar(); }
-  }, 10000);
+  // Refresh count every 30 seconds from Worker
+  setInterval(function() { fetchKlaviyoCount(); }, 30000);
 
   // Hide sticky CTA when waitlist is visible
   var wlSection = document.getElementById('waitlist');
