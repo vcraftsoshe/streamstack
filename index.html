@@ -32,20 +32,20 @@ section{position:relative;z-index:1;}
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;padding:130px 5% 80px;overflow:hidden;}
 .hero::after{content:'S';position:absolute;right:-3%;top:50%;transform:translateY(-50%);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:52vw;color:rgba(184,224,0,.02);line-height:1;pointer-events:none;user-select:none;}
-.hwrap{display:block;max-width:780px;margin:0 auto;width:100%;position:relative;z-index:1;}
+.hwrap{display:block;max-width:780px;margin:0 auto;width:100%;position:relative;z-index:1;text-align:center;}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--lime-dim);border:1px solid var(--bdr);padding:6px 14px;margin-bottom:22px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--lime);}
 .dp{width:6px;height:6px;background:var(--lime);border-radius:50%;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
 .hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(52px,6vw,90px);line-height:.9;letter-spacing:-1px;text-transform:uppercase;margin-bottom:22px;}
-.hero-sub{font-size:17px;line-height:1.65;color:var(--grey-l);max-width:480px;margin-bottom:14px;}
+.hero-sub{font-size:17px;line-height:1.65;color:var(--grey-l);max-width:480px;margin:0 auto 14px;}
 .hero-sub strong{color:var(--white);}
 
-.actions{display:flex;gap:14px;align-items:center;margin-bottom:42px;}
+.actions{display:flex;gap:14px;align-items:center;justify-content:center;margin-bottom:42px;}
 .btn-p{background:var(--lime);color:var(--navy);border:none;padding:15px 34px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:17px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .25s;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);text-decoration:none;display:inline-block;}
 .btn-p:hover{background:var(--lime-bright);transform:translateY(-2px);box-shadow:0 12px 40px rgba(184,224,0,.25);}
 .btn-g{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.18);padding:14px 26px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block;}
 .btn-g:hover{border-color:var(--lime);color:var(--lime);}
-.stats{display:flex;gap:36px;}
+.stats{display:flex;gap:36px;justify-content:center;}
 .sn{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:30px;color:var(--lime);line-height:1;}
 .sl{font-size:11px;color:var(--grey);text-transform:uppercase;letter-spacing:1px;margin-top:3px;font-weight:700;}
 
@@ -268,8 +268,15 @@ footer{padding:56px 5% 36px;background:var(--navy);}
 .founder-txt p{font-size:16px;color:var(--grey-l);line-height:1.75;margin-bottom:18px;}
 .founder-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;}
 
+
+/* STICKY BOTTOM CTA */
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--navy-mid);border-top:1px solid var(--bdr);padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;backdrop-filter:blur(10px);}
+.sticky-cta-txt{font-size:13px;color:var(--grey-l);line-height:1.3;}
+.sticky-cta-txt strong{color:var(--lime);display:block;font-family:'Barlow Condensed',sans-serif;font-size:18px;}
+.sticky-cta-btn{background:var(--lime);color:var(--navy);border:none;padding:12px 22px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;white-space:nowrap;border-radius:6px;flex-shrink:0;}
 /* RESPONSIVE */
 @media(max-width:900px){
+  .sticky-cta{display:flex;}
   .hwrap,.rgrid,.founder-grid{grid-template-columns:1fr;gap:32px;}
   .steps{grid-template-columns:1fr;}
   .tcards{grid-template-columns:1fr 1fr;}
@@ -499,7 +506,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
       <h2 class="h2">Help Us<br>Negotiate.</h2>
       <p style="color:var(--grey-l);font-size:16px;max-width:540px;margin:.8rem auto 0;line-height:1.6;">Our discount from streaming platforms grows with subscriber volume. Every person on this waitlist gives us more leverage and lowers the price for everyone at launch.</p>
     </div>
-    <div class="prog-lbl">Currently at <strong id="prog-c">247</strong> signups. <span class="lime">179 away from Tier 2 →</span></div>
+    <div class="prog-lbl">Currently at <strong id="prog-c">247</strong> signups. <span class="lime" id="tier-label">4,753 away from Tier 1 →</span></div>
     <div class="prog-track">
       <div class="prog-bg"><div class="prog-fill" id="prog-fill"></div></div>
       <div class="t-marks">
@@ -516,7 +523,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
       <div class="tc locked"><div class="tc-top"></div><div class="tc-ico">🔒</div><div class="tc-n">Tier 3</div><div class="tc-goal">20K</div><div class="tc-disc">Locked</div><div class="tc-desc">Volume discount improves significantly here.</div></div>
       <div class="tc locked"><div class="tc-top"></div><div class="tc-ico">🔒</div><div class="tc-n">Tier 4. Goal</div><div class="tc-goal">25K</div><div class="tc-disc">Max rate</div><div class="tc-desc">Best negotiating position. Best price for every subscriber.</div></div>
     </div>
-    <p class="tier-dis">*Discount tiers are negotiation targets, not guaranteed rates. All waitlist members receive confirmed pricing before launch.</p>
+    <p class="tier-dis">*Discount tiers are negotiation targets, not guaranteed rates. All waitlist members will be notified of final pricing before launch.</p>
   </div>
 </section>
 
@@ -550,12 +557,12 @@ footer{padding:56px 5% 36px;background:var(--navy);}
       <div>
         <p class="lbl">Refer a Friend</p>
         <h2 class="h2">Share It.<br><span class="lime">Win a Free Year.</span></h2>
-        <p style="font-size:16px;color:var(--grey-l);line-height:1.7;margin-bottom:24px;">Every referral helps unlock better rates for everyone. And the <strong style="color:var(--white)">top 3 referrers</strong> at launch win their first year on StreamStack completely free.</p>
+        <p style="font-size:16px;color:var(--grey-l);line-height:1.7;margin-bottom:24px;">Every referral helps unlock better rates for everyone. And the <strong style="color:var(--white)">top 3 referrers</strong> at launch win their first year on StreamStack completely free. Terms apply — prize is contingent on StreamStack launching.</p>
         <div class="rewards">
           <div class="reward" style="border-color:var(--bdr);background:rgba(184,224,0,.06);">
             <div class="rc" style="font-size:30px;">🏆</div>
             <div class="rdiv"></div>
-            <div class="ri"><h4>Top 3 Referrers Win</h4><p>The 3 people who refer the most signups before launch get a full year of StreamStack free</p></div>
+            <div class="ri"><h4>Top 3 Referrers Win</h4><p>The 3 people who refer the most signups before launch get a full year of StreamStack free. Contingent on StreamStack launching. Terms and conditions apply.</p></div>
           </div>
           <div class="reward">
             <div class="rc" style="font-size:30px;">📊</div>
@@ -618,7 +625,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
 <div style="background:var(--navy);border-top:1px solid var(--bdr-f);padding:32px 5%;">
   <div style="max-width:1280px;margin:0 auto;text-align:center;">
     <p style="font-size:12px;color:#4A5568;line-height:1.7;max-width:800px;margin:0 auto;">
-      <strong style="color:#5A6478;">Important:</strong> StreamStack is currently a waitlist only. No service is live, no platform agreements have been signed, and no pricing is confirmed. All bundle prices, savings figures, and discount tiers shown on this page are indicative estimates based on target commercial terms we intend to negotiate. Actual pricing will depend on the outcome of negotiations with each streaming platform and will be communicated to all waitlist members before any commitment is required. Joining the waitlist does not create any obligation on your part or ours.
+      <strong style="color:#5A6478;">Important Notice:</strong> StreamStack is a waitlist only. No service is currently live and no agreements have been signed with any streaming platform. All prices, savings figures, and discount tiers shown are indicative estimates based on target commercial terms we intend to negotiate — they are not confirmed or guaranteed. Actual pricing will depend entirely on the outcome of platform negotiations and will be communicated to all waitlist members before any commitment or payment is required from you. Joining the waitlist creates no financial or contractual obligation on your part or ours. The referral prize (one free year) is subject to StreamStack successfully launching and separate terms and conditions. StreamStack NZ Ltd is a New Zealand registered company. For questions contact us via our social channels.
     </p>
   </div>
 </div>
@@ -646,29 +653,58 @@ footer{padding:56px 5% 36px;background:var(--navy);}
 var count = 247;
 var T1 = 5000, T2 = 10000;
 // KLAVIYO LIVE COUNT
-// Replace YOUR_PRIVATE_KEY_HERE with your Klaviyo private key (read-only)
-// Replace YOUR_LIST_ID_HERE with your StreamStack Waitlist list ID
-// (Find list ID in Klaviyo → Lists → click your list → URL shows the ID)
-var KLAVIYO_KEY = 'pk_Wcz5Pp_05ffec49ddc64c36c72356f2ae8b4dd489';
+// KLAVIYO LIST ID
 var KLAVIYO_LIST_ID = 'TKeL8u';
+// WORKER URL — replace with your Cloudflare Worker URL after deploying
+// See klaviyo-worker.js file for deployment instructions
 
 function fetchKlaviyoCount() {
-  if (KLAVIYO_KEY === 'YOUR_PRIVATE_KEY_HERE') return; // skip if not set
-  fetch('https://a.klaviyo.com/api/lists/' + KLAVIYO_LIST_ID + '/profiles/?additional-fields[profile]=subscriptions&page[size]=1', {
-    headers: {
-      'Authorization': 'Klaviyo-API-Key ' + KLAVIYO_KEY,
-      'revision': '2023-12-15'
-    }
-  })
-  .then(function(r) { return r.json(); })
-  .then(function(data) {
-    if (data && data.meta && data.meta.total) {
-      count = data.meta.total;
+  // First restore from localStorage (instant, no flicker)
+  var stored = localStorage.getItem('ss_waitlist_count');
+  if (stored) {
+    var parsed = parseInt(stored);
+    if (parsed > count) {
+      count = parsed;
       setAll(count);
+      updateTierLabel();
       bar();
     }
-  })
-  .catch(function(e) { console.log('Klaviyo count fetch failed', e); });
+  }
+
+  // Then fetch real count from Cloudflare Worker
+  // Replace YOUR_WORKER_URL with your deployed worker URL
+  // e.g. https://streamstack-count.YOUR_SUBDOMAIN.workers.dev
+  var WORKER_URL = 'https://streamstack-count.vanessacraftsai.workers.dev';
+  if (!WORKER_URL) return;
+
+  fetch(WORKER_URL, { mode: 'cors' })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data && data.count && data.count > count) {
+        count = data.count;
+        setAll(count);
+        updateTierLabel();
+        bar();
+        saveCount();
+      }
+    })
+    .catch(function(e) { console.log('Worker fetch failed', e); });
+}
+
+function saveCount() {
+  try { localStorage.setItem('ss_waitlist_count', count); } catch(e) {}
+}
+
+function updateTierLabel() {
+  var lbl = document.getElementById('tier-label');
+  if (!lbl) return;
+  var remaining = T1 - count;
+  if (remaining > 0) {
+    lbl.textContent = remaining.toLocaleString() + ' away from Tier 1 →';
+  } else {
+    remaining = T2 - count;
+    lbl.textContent = remaining > 0 ? remaining.toLocaleString() + ' away from Tier 2 →' : 'Tier 2 unlocked!';
+  }
 }
 function toggleMenu() {
   var menu = document.getElementById('mobile-menu');
@@ -687,6 +723,8 @@ function setAll(n) {
     var e = document.getElementById(id);
     if (e) e.textContent = n.toLocaleString();
   });
+  var sc = document.getElementById('sticky-count');
+  if (sc) sc.textContent = n.toLocaleString() + ' Kiwis';
 }
 
 function animCount(target) {
@@ -717,13 +755,7 @@ function signup() {
     return;
   }
 
-  // Capture selected platforms
-  var selectedPlatforms = [];
-  document.querySelectorAll('.pcard.selected').forEach(function(p) {
-    selectedPlatforms.push(p.getAttribute('data-name'));
-  });
-
-  // Push to Klaviyo with platform data
+  // Push to Klaviyo - subscribe to list directly
   if (window.klaviyo) {
     klaviyo.push(['identify', {
       email: v,
@@ -743,6 +775,22 @@ function signup() {
     }]);
   }
 
+  // Also subscribe directly to the list via Klaviyo API
+  fetch('https://a.klaviyo.com/client/subscriptions/?company_id=Wcz5Pp', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', 'revision': '2024-02-15' },
+    body: JSON.stringify({
+      data: {
+        type: 'subscription',
+        attributes: {
+          list_id: 'TKeL8u',
+          email: v,
+          custom_source: 'StreamStack Website'
+        }
+      }
+    })
+  }).catch(function(e) { console.log('Subscribe failed', e); });
+
   // Show success
   document.querySelector('.wl-form').style.display = 'none';
   document.getElementById('wl-ok').style.display = 'block';
@@ -754,7 +802,9 @@ function signup() {
 
   count++;
   setAll(count);
+  updateTierLabel();
   bar();
+  saveCount();
 }
 
 function copyRef() {
@@ -808,7 +858,7 @@ function updateReceipt() {
     var pr = parseFloat(p.getAttribute('data-price'));
     var ss = pr * (1 - DISC);
     tR += pr; tS += ss;
-    html += '<div class="receipt-line"><span class="rl-name">' + p.getAttribute('data-name') + '</span><span class="rl-retail">$' + pr + '</span><span class="rl-ss">$' + ss.toFixed(2) + '</span></div>';
+    html += '<div class="receipt-line"><span class="rl-name">' + p.getAttribute('data-name') + '</span><span class="rl-retail">$' + pr + '</span><span class="rl-ss">est. $' + ss.toFixed(2) + '</span></div>';
   });
   lines.innerHTML = html;
   var sM = tR - tS, sY = sM * 12;
@@ -823,6 +873,7 @@ document.addEventListener('DOMContentLoaded', function() {
   animCount(count);
   setTimeout(bar, 700);
   fetchKlaviyoCount();
+  updateTierLabel();
   updateReceipt();
 
   var emailEl = document.getElementById('email');
@@ -835,6 +886,17 @@ document.addEventListener('DOMContentLoaded', function() {
   setInterval(function() {
     if (Math.random() > 0.5) { count++; setAll(count); bar(); }
   }, 10000);
+
+  // Hide sticky CTA when waitlist is visible
+  var wlSection = document.getElementById('waitlist');
+  if (wlSection) {
+    var wlObs = new IntersectionObserver(function(entries) {
+      var sticky = document.getElementById('sticky-cta');
+      if (!sticky) return;
+      sticky.style.display = entries[0].isIntersecting ? 'none' : 'flex';
+    }, { threshold: 0.2 });
+    wlObs.observe(wlSection);
+  }
 
   var obs = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
@@ -853,5 +915,13 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-cta-txt">
+    <strong id="sticky-count">248 Kiwis</strong>already on the waitlist
+  </div>
+  <button class="sticky-cta-btn" onclick="goTo('waitlist');document.getElementById('sticky-cta').style.display='none';">Join Waitlist</button>
+</div>
 </body>
 </html>
