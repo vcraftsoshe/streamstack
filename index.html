@@ -668,8 +668,8 @@ function signup() {
   }
   fetch('https://a.klaviyo.com/client/subscriptions/?company_id=Wcz5Pp', {
     method: 'POST',
-    headers: { 'content-type': 'application/json', 'revision': '2024-02-15' },
-    body: JSON.stringify({ data: { type: 'subscription', attributes: { profile: { data: { type: 'profile', attributes: { email: v, properties: { platforms_selected: selectedPlatforms.join(', '), signup_source: 'StreamStack Website' } } } }, list_id: 'TKeL8u' } } })
+    headers: { 'content-type': 'application/json', 'revision': '2024-10-15' },
+    body: JSON.stringify({ data: { type: 'subscription', attributes: { list_id: 'TKeL8u', channels: { email: { consent: ['MARKETING'] } }, profile: { data: { type: 'profile', attributes: { email: v, properties: { platforms_selected: selectedPlatforms.join(', '), signup_source: 'StreamStack Website' } } } } } } })
   }).catch(function(e) { console.log('Klaviyo subscribe failed', e); });
 }
 
