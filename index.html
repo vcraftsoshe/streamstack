@@ -438,11 +438,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
             <div class="rdiv"></div>
             <div class="ri"><h4>Top 3 Referrers Win</h4><p>The 3 people who refer the most signups before launch get a full year of StreamStack free. Contingent on StreamStack launching.</p></div>
           </div>
-          <div class="reward">
-            <div class="rc" style="font-size:30px;">📊</div>
-            <div class="rdiv"></div>
-            <div class="ri"><h4>Live Leaderboard</h4><p>The leaderboard is live — see exactly where you rank right now. Sign up, grab your code, start referring.</p></div>
-          </div>
+
         </div>
       </div>
       <div>
@@ -673,7 +669,7 @@ function signup() {
   fetch('https://a.klaviyo.com/client/subscriptions/?company_id=Wcz5Pp', {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'revision': '2024-02-15' },
-    body: JSON.stringify({ data: { type: 'subscription', attributes: { profile: { data: { type: 'profile', attributes: { email: v, properties: { platforms_selected: selectedPlatforms.join(', '), signup_source: 'StreamStack Website' } } } }, list_id: 'XHFsbx' } } })
+    body: JSON.stringify({ data: { type: 'subscription', attributes: { profile: { data: { type: 'profile', attributes: { email: v, properties: { platforms_selected: selectedPlatforms.join(', '), signup_source: 'StreamStack Website' } } } }, list_id: 'TKeL8u' } } })
   }).catch(function(e) { console.log('Klaviyo subscribe failed', e); });
 }
 
