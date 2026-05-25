@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — StreamStack NZ</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--lime:#B8E000;--navy:#0F1629;--navy-mid:#1A2340;--white:#F5F7FF;--grey:#7A8599;--grey-l:#9AA3BB;--bdr:rgba(184,224,0,0.14);--bdr-f:rgba(255,255,255,0.07);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--white);font-family:'Barlow',sans-serif;line-height:1.7;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(15,22,41,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr-f);}
+.nlogo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nlogo-t{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;color:var(--white);}
+.back-btn{background:transparent;border:1px solid rgba(255,255,255,0.15);color:var(--grey-l);padding:8px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all .2s;}
+.back-btn:hover{border-color:var(--lime);color:var(--lime);}
+.hero{padding:120px 5% 60px;max-width:800px;margin:0 auto;}
+.hero p.lbl{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--lime);margin-bottom:14px;}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(42px,5vw,72px);text-transform:uppercase;line-height:.93;letter-spacing:-1px;margin-bottom:20px;}
+.hero .meta{font-size:14px;color:var(--grey);border-top:1px solid var(--bdr-f);padding-top:16px;}
+.content{max-width:800px;margin:0 auto;padding:0 5% 80px;}
+.content h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:24px;text-transform:uppercase;color:var(--white);margin:40px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--bdr-f);}
+.content h2:first-child{margin-top:0;}
+.content p{color:var(--grey-l);font-size:15px;margin-bottom:14px;}
+.content ul{color:var(--grey-l);font-size:15px;margin:0 0 14px 20px;}
+.content ul li{margin-bottom:8px;}
+.content a{color:var(--lime);text-decoration:none;}
+.content a:hover{text-decoration:underline;}
+.highlight-box{background:rgba(184,224,0,0.05);border:1px solid var(--bdr);border-radius:12px;padding:20px 24px;margin:24px 0;}
+.highlight-box p{margin:0;color:var(--grey-l);}
+.highlight-box strong{color:var(--white);}
+footer{padding:40px 5%;border-top:1px solid var(--bdr-f);text-align:center;}
+footer p{font-size:13px;color:var(--grey);}
+footer a{color:var(--lime);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nlogo" href="/">
+    <svg width="28" height="32" viewBox="0 0 34 38" fill="none"><rect x="3" y="0" width="26" height="5.5" rx="1" fill="#B8E000"/><rect x="3" y="7.5" width="20" height="5.5" rx="1" fill="#B8E000"/><rect x="3" y="15" width="14" height="5.5" rx="1" fill="#B8E000"/><rect x="13" y="22.5" width="14" height="5.5" rx="1" fill="#B8E000"/><rect x="7" y="30" width="20" height="5.5" rx="1" fill="#B8E000"/></svg>
+    <span class="nlogo-t">StreamStack</span>
+  </a>
+  <a href="/" class="back-btn">← Back to Site</a>
+</nav>
+
+<div class="hero">
+  <p class="lbl">Legal</p>
+  <h1>Privacy<br><span style="color:var(--lime);">Policy</span></h1>
+  <p class="meta">StreamStack NZ Ltd &nbsp;·&nbsp; Last updated: May 2026 &nbsp;·&nbsp; Effective immediately</p>
+</div>
+
+<div class="content">
+
+  <div class="highlight-box">
+    <p><strong>The short version:</strong> We collect your email and optional streaming preferences to run the StreamStack waitlist. We use Cloudflare to store signup data and Klaviyo to manage email communications. We don't sell your data. Ever. You can ask us to delete it anytime by emailing <a href="mailto:hello@streamstack.co.nz">hello@streamstack.co.nz</a>.</p>
+  </div>
+
+  <h2>Who We Are</h2>
+  <p>StreamStack NZ Ltd is a New Zealand registered company building a streaming subscription aggregation service for New Zealand households. This privacy policy covers how we collect, use, and protect personal information through our website at <a href="https://streamstack.co.nz">streamstack.co.nz</a> and our waitlist service.</p>
+  <p>We comply with the New Zealand Privacy Act 2020 and its 13 Information Privacy Principles.</p>
+
+  <h2>What We Collect</h2>
+  <p>When you join our waitlist, we may collect:</p>
+  <ul>
+    <li><strong>Email address</strong> — required to add you to the waitlist and send you launch updates</li>
+    <li><strong>Display name</strong> — optional, shown on the public referral leaderboard</li>
+    <li><strong>Streaming platforms you currently pay for</strong> — optional (e.g. Netflix, Neon, Disney+), used in aggregate to support platform negotiations</li>
+    <li><strong>Your #1 streaming platform</strong> — optional, used in aggregate only</li>
+    <li><strong>Approximate monthly streaming spend</strong> — optional (a spend range, not an exact figure), used in aggregate only</li>
+    <li><strong>Referral code used</strong> — if you signed up via a friend's referral link, we record which code was used</li>
+    <li><strong>Referral count</strong> — how many people have signed up using your referral code, used for the leaderboard and competition</li>
+    <li><strong>New Zealand residency confirmation</strong> — a checkbox confirming you're based in NZ, as StreamStack is a NZ-only service</li>
+  </ul>
+  <p>All fields except email address are entirely optional. Platform and spend data is only ever reported in aggregate — we will never share your individual responses with any streaming platform or third party.</p>
+  <p>We also collect standard web analytics data (page views, referral sources) through Cloudflare, which does not identify you personally.</p>
+
+  <h2>How We Use Your Information</h2>
+  <ul>
+    <li>To add you to our waitlist and send you launch updates, pricing announcements, and news about StreamStack</li>
+    <li>To track referrals and manage the referral competition</li>
+    <li>To aggregate streaming platform preference, top platform, and monthly spend data — for example reporting to streaming platforms that "X% of our waitlist currently pay for Netflix" or "average spend is $Y/month". We only ever share these aggregate totals, never individual responses</li>
+    <li>To improve our website and service based on usage patterns</li>
+  </ul>
+  <p>We will not use your information for any purpose other than those listed above without your explicit consent.</p>
+
+  <h2>Who We Share It With</h2>
+  <p>We use the following third-party services to operate the waitlist:</p>
+  <ul>
+    <li><strong>Cloudflare</strong> — stores signup data in their D1 database and Workers platform. Data is stored in Cloudflare's global infrastructure. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Cloudflare's Privacy Policy</a>.</li>
+    <li><strong>Klaviyo</strong> — manages our email list and sends communications. Your email address and optional profile properties are stored in Klaviyo. See <a href="https://www.klaviyo.com/legal/privacy-notice" target="_blank">Klaviyo's Privacy Policy</a>.</li>
+  </ul>
+  <p>We do not sell, rent, or trade your personal information to any third party. We do not share individual data with streaming platforms — only anonymised aggregate statistics.</p>
+
+  <h2>Email Communications</h2>
+  <p>By joining the waitlist you consent to receiving email updates from StreamStack NZ about our launch, pricing, and service news. Every email includes an unsubscribe link. You can also unsubscribe at any time by emailing <a href="mailto:hello@streamstack.co.nz">hello@streamstack.co.nz</a>.</p>
+  <p>We will not send you marketing emails unrelated to StreamStack.</p>
+
+  <h2>Your Rights Under the NZ Privacy Act 2020</h2>
+  <p>You have the right to:</p>
+  <ul>
+    <li><strong>Access</strong> the personal information we hold about you</li>
+    <li><strong>Correct</strong> any inaccurate information</li>
+    <li><strong>Delete</strong> your information and be removed from our waitlist</li>
+    <li><strong>Know</strong> how your information is being used</li>
+    <li><strong>Complain</strong> to the Office of the Privacy Commissioner if you believe we've breached the Privacy Act</li>
+  </ul>
+  <p>To exercise any of these rights, email us at <a href="mailto:hello@streamstack.co.nz">hello@streamstack.co.nz</a>. We will respond within 20 working days as required by law.</p>
+
+  <h2>Data Security</h2>
+  <p>We take reasonable steps to protect your personal information from unauthorised access, loss, or misuse. Your data is stored in Cloudflare's secure infrastructure with access restricted to StreamStack staff only. We do not store payment information — StreamStack is a pre-launch waitlist only and no payments are taken.</p>
+
+  <h2>Data Retention</h2>
+  <p>We retain waitlist data until StreamStack launches or the venture is wound up, whichever comes first. If you request deletion before then, we will remove your data within 20 working days. After launch, data retention will be governed by a separate customer privacy policy provided at sign-up.</p>
+
+  <h2>Cookies</h2>
+  <p>Our website uses minimal cookies — primarily for Cloudflare security and basic analytics. We do not use advertising cookies or tracking pixels. Klaviyo's email system may use tracking pixels in emails to record whether emails are opened; you can disable this by turning off image loading in your email client.</p>
+
+  <h2>Children</h2>
+  <p>StreamStack is not directed at children under 16. We do not knowingly collect personal information from anyone under 16. If you believe we have done so, please contact us immediately.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>We may update this policy from time to time. If we make material changes, we'll notify waitlist members by email before the changes take effect. The current version is always available at <a href="https://streamstack.co.nz/privacy.html">streamstack.co.nz/privacy.html</a>.</p>
+
+  <h2>Contact Us</h2>
+  <p>If you have any questions about this privacy policy or how we handle your data:</p>
+  <ul>
+    <li>Email: <a href="mailto:hello@streamstack.co.nz">hello@streamstack.co.nz</a></li>
+    <li>Website: <a href="https://streamstack.co.nz">streamstack.co.nz</a></li>
+    <li>Company: StreamStack NZ Ltd, New Zealand</li>
+  </ul>
+  <p>For complaints about privacy breaches, you can also contact the <a href="https://www.privacy.org.nz" target="_blank">Office of the Privacy Commissioner</a> at privacy.org.nz.</p>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 StreamStack NZ Ltd &nbsp;·&nbsp; <a href="/">Back to streamstack.co.nz</a></p>
+</footer>
+
+</body>
+</html>
