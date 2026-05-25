@@ -168,7 +168,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
 .pcard.selected .pcard-name{color:var(--white);}
 .pcard:not(.selected) .pcard-name{color:var(--grey-l);}
 .pcard-prices{display:flex;gap:8px;align-items:center;}
-.pcard-retail{font-size:12px;color:var(--grey);text-decoration:line-through;text-decoration-color:rgba(255,107,107,.6);}
+.pcard-retail{font-size:12px;color:#FF6B6B;font-weight:700;text-decoration:line-through;text-decoration-color:#FF6B6B;text-decoration-thickness:2px;}
 .pcard-ss{font-size:13px;color:var(--lime);font-weight:700;}
 .pcard:not(.selected) .pcard-ss{color:var(--grey);}
 .receipt{background:var(--card);border:1px solid var(--bdr);border-radius:20px;padding:28px;backdrop-filter:blur(20px);position:sticky;top:90px;}
@@ -178,7 +178,7 @@ footer{padding:56px 5% 36px;background:var(--navy);}
 .receipt-col-hds span:nth-child(3){min-width:80px;text-align:right;}
 .receipt-line{display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:8px 0;border-bottom:1px solid var(--bdr-f);font-size:14px;align-items:center;}
 .rl-name{color:var(--grey-l);font-weight:500;}
-.rl-retail{min-width:60px;text-align:right;color:var(--grey);font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-decoration:line-through;text-decoration-color:rgba(255,107,107,.5);}
+.rl-retail{min-width:60px;text-align:right;color:#FF6B6B;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-decoration:line-through;text-decoration-color:#FF6B6B;text-decoration-thickness:2px;}
 .rl-ss{min-width:80px;text-align:right;color:var(--lime);font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;}
 .receipt-divider{height:1px;background:var(--bdr-f);margin:14px 0;}
 .receipt-row{display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:6px 0;align-items:center;font-size:14px;font-weight:600;}
@@ -240,6 +240,7 @@ nav .nlinks{display:none;}
 </style>
 <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/Wcz5Pp/klaviyo.js?company_id=Wcz5Pp"></script>
 <script type="text/javascript">!function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "526240d1bed04c70b72e4855ba798e1c"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
 <nav>
@@ -307,10 +308,10 @@ nav .nlinks{display:none;}
         <div class="receipt-col-hds"><span>Platform</span><span style="color:var(--grey)">Now</span><span style="color:var(--lime)">StreamStack</span></div>
         <div id="receipt-lines"></div>
         <div class="receipt-divider"></div>
-        <div class="receipt-row"><span>Monthly total</span><span id="r-retail" style="color:#FF6B6B;font-size:22px;font-family:'Barlow Condensed',sans-serif;font-weight:800;">$0</span><span id="r-ss" style="color:var(--lime);font-size:22px;font-family:'Barlow Condensed',sans-serif;font-weight:800;">$0</span></div>
+        <div class="receipt-row"><span>Monthly total</span><span id="r-retail" style="color:#FF6B6B;font-size:22px;font-family:'Barlow Condensed',sans-serif;font-weight:800;text-decoration:line-through;text-decoration-color:#FF6B6B;text-decoration-thickness:2px;">$0</span><span id="r-ss" style="color:var(--lime);font-size:22px;font-family:'Barlow Condensed',sans-serif;font-weight:800;">$0</span></div>
         <div class="receipt-row"><span style="color:var(--grey);font-size:13px;">Separate bills</span><span id="r-bills" style="color:#FF6B6B;font-size:14px;font-weight:700;">0 bills</span><span style="color:var(--lime);font-size:14px;font-weight:700;">1 bill</span></div>
         <div class="saving-callout" id="saving-callout"><div class="sc-label">You save with StreamStack</div><div class="sc-nums"><span id="sc-mo">$0/mo</span><span class="sc-sep">&middot;</span><span id="sc-yr">$0/yr</span></div></div>
-        <button class="receipt-cta" onclick="goTo('waitlist')">Join the Waitlist</button>
+        <button class="receipt-cta" onclick="goTo('waitlist');setTimeout(function(){var sel=document.querySelectorAll('.pcard.selected');sel.forEach(function(p){var cbs=document.querySelectorAll('.plat-cb');cbs.forEach(function(cb){if(cb.value===p.getAttribute('data-name')){cb.checked=true;}});});updateWlSavings();var panel=document.getElementById('savings-panel');var arrow=document.getElementById('savings-arrow');var tog=document.getElementById('savings-toggle');if(panel){panel.style.display='block';}if(arrow){arrow.style.transform='rotate(90deg)';}if(tog){tog.style.borderRadius='10px 10px 0 0';}},600);">Join the Waitlist</button>
         <p style="font-size:11px;color:var(--grey);text-align:center;margin-top:10px;">Pricing indicative pending platform negotiations. You keep your own logins.</p>
       </div>
     </div>
@@ -399,7 +400,15 @@ nav .nlinks{display:none;}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;max-width:1000px;margin:0 auto;" class="refer-grid">
       <div style="background:var(--card);border:1px solid var(--bdr);border-radius:20px;padding:32px;backdrop-filter:blur(20px);">
         <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--lime);margin-bottom:16px;">Your Referral Link</div>
-        <p style="color:var(--grey-l);font-size:14px;margin-bottom:20px;line-height:1.6;">Sign up below to unlock your personal code. Every signup through your link counts towards the leaderboard.</p>
+        <p style="color:var(--grey-l);font-size:14px;margin-bottom:16px;line-height:1.6;">Sign up below to unlock your personal code. Every signup through your link counts towards the leaderboard.</p>
+        <div id="name-set-box" style="margin-bottom:16px;background:rgba(184,224,0,0.04);border:1px solid var(--bdr);border-radius:10px;padding:14px 16px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-bottom:8px;">Your leaderboard name</div>
+          <div style="display:flex;gap:8px;">
+            <input id="leaderboard-name" type="text" placeholder="How you'll appear on the leaderboard" style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:10px 14px;font-family:'Barlow',sans-serif;font-size:14px;color:var(--white);outline:none;border-radius:6px;min-width:0;" />
+            <button onclick="saveName()" style="background:var(--lime);color:var(--navy);border:none;padding:10px 16px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:6px;white-space:nowrap;">Save</button>
+          </div>
+          <div id="name-saved-msg" style="display:none;font-size:12px;color:var(--lime);margin-top:6px;">✓ Name saved! You're on the leaderboard.</div>
+        </div>
         <div style="display:flex;margin-bottom:16px;border-radius:8px;overflow:hidden;border:1px solid var(--bdr);">
           <input id="ref-link" value="streamstack.co.nz/ref/YOURCODE" readonly style="flex:1;background:rgba(255,255,255,0.04);border:none;padding:14px 16px;color:var(--lime);font-size:14px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:1px;outline:none;min-width:0;" />
           <button onclick="copyRef()" class="rcopy" style="border-radius:0;padding:14px 20px;font-size:14px;">Copy</button>
@@ -433,26 +442,35 @@ nav .nlinks{display:none;}
 
 <section class="waitlist" id="waitlist">
   <div class="inner">
-    <div class="wl-pill"><span class="wl-dot"></span><span id="wl-c">5</span> Kiwis on the waitlist</div>
+    <div class="wl-pill"><span class="wl-dot"></span><span id="wl-c">11</span> Kiwis on the waitlist</div>
     <h2>One Bill.<br><span class="lime">Done.</span></h2>
     <p class="wl-sub">Join the waitlist. Be part of the movement saving Kiwis money on streaming, and be first to access StreamStack when we launch.</p>
 
-    <div class="wl-form" id="wl-form">
-      <input class="wl-in" type="email" id="email" placeholder="your@email.com" />
-      <button class="wl-btn" onclick="signup()">Join Waitlist</button>
-    </div>
-
-    <div style="max-width:480px;margin:-10px auto 10px;position:relative;z-index:1;">
-      <input id="display-name" type="text" placeholder="Your display name (shown on leaderboard) *" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:12px 16px;font-family:'Barlow',sans-serif;font-size:14px;color:var(--white);outline:none;border-radius:4px;margin-bottom:8px;" />
-      <input id="ref-input" type="text" placeholder="Got a referral code? Enter it here (optional)" style="width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:10px 16px;font-family:'Barlow',sans-serif;font-size:13px;color:var(--grey-l);outline:none;border-radius:4px;" />
+    <div id="wl-form">
+      <div id="ref-pill" style="display:none;max-width:480px;margin:0 auto 12px;background:rgba(184,224,0,0.08);border:1px solid var(--bdr);border-radius:8px;padding:10px 16px;align-items:center;gap:10px;">
+        <span style="font-size:18px;">🎯</span>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--lime);">You were referred by a friend</div>
+          <div style="font-size:12px;color:var(--grey-l);">Sign up below — your referral is already applied.</div>
+        </div>
+      </div>
+      <input id="ref-input" type="hidden" value="" />
+      <div class="wl-form" style="margin-bottom:10px;">
+        <input class="wl-in" type="email" id="email" placeholder="your@email.com" />
+        <button class="wl-btn" onclick="signup()">Join Waitlist</button>
+      </div>
+      <div style="max-width:480px;margin:0 auto 16px;display:flex;align-items:center;gap:10px;justify-content:center;position:relative;z-index:1;">
+        <input type="checkbox" id="nz-check" style="width:18px;height:18px;accent-color:var(--lime);cursor:pointer;flex-shrink:0;" />
+        <label for="nz-check" style="font-size:13px;color:var(--grey-l);cursor:pointer;">I'm based in New Zealand 🇳🇿</label>
+      </div>
     </div>
 
     <!-- SAVINGS CALCULATOR — optional, helps with platform negotiations -->
     <div style="max-width:480px;margin:16px auto;position:relative;z-index:1;">
       <div id="savings-toggle" onclick="toggleSavings()" style="display:flex;align-items:center;justify-content:space-between;background:rgba(184,224,0,0.06);border:1px solid var(--bdr);border-radius:10px;padding:14px 18px;cursor:pointer;transition:border-radius .2s;">
         <div>
-          <div style="font-size:13px;font-weight:700;color:var(--lime);letter-spacing:.5px;">💰 See how much you could save</div>
-          <div style="font-size:12px;color:var(--grey-l);margin-top:2px;">10 seconds · helps us negotiate better rates · totally optional</div>
+          <div style="font-size:13px;font-weight:700;color:var(--lime);letter-spacing:.5px;">💰 Most Kiwis save $10–$13/mo</div>
+          <div style="font-size:12px;color:var(--grey-l);margin-top:2px;">Tap to see your exact saving · helps us negotiate · totally optional</div>
         </div>
         <div id="savings-arrow" style="color:var(--lime);font-size:20px;font-weight:300;transition:transform .3s;line-height:1;">›</div>
       </div>
@@ -510,17 +528,29 @@ nav .nlinks{display:none;}
       </div>
     </div>
 
-    <div style="max-width:480px;margin:0 auto 20px;position:relative;z-index:1;display:flex;align-items:center;gap:10px;justify-content:center;">
-      <input type="checkbox" id="nz-check" style="width:18px;height:18px;accent-color:var(--lime);cursor:pointer;flex-shrink:0;" />
-      <label for="nz-check" style="font-size:13px;color:var(--grey-l);cursor:pointer;">I'm based in New Zealand 🇳🇿</label>
-    </div>
-
     <div class="wl-ok" id="wl-ok" style="padding:32px 20px;">
       <div style="font-size:36px;margin-bottom:12px;">🎉</div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;margin-bottom:8px;color:var(--white);">You're on the waitlist!</div>
-      <div style="font-size:18px;color:var(--grey-l);margin-bottom:8px;">Now — <strong style="color:var(--lime);">want to win a free year?</strong></div>
-      <div style="font-size:15px;color:var(--grey);margin-bottom:28px;">Scroll down, grab your referral link and share it.<br>Most signups wins. Game on.</div>
-      <button onclick="goTo('refer')" style="background:var(--lime);color:var(--navy);border:none;padding:16px 40px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:all .2s;">Get My Referral Link →</button>
+
+      <!-- NO REFERRAL — introduce the game -->
+      <div id="ok-no-ref">
+        <div style="font-size:18px;color:var(--grey-l);margin-bottom:8px;">Now — <strong style="color:var(--lime);">want to play a game?</strong></div>
+        <div style="font-size:15px;color:var(--grey);margin-bottom:24px;">The person who refers the most Kiwis before we launch wins a full year of StreamStack free. Share your link. Most signups wins.</div>
+        <div style="max-width:380px;margin:0 auto 24px;text-align:left;">
+          <input id="display-name" type="text" placeholder="Your name for the leaderboard (optional)" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:12px 16px;font-family:'Barlow',sans-serif;font-size:14px;color:var(--white);outline:none;border-radius:4px;" />
+        </div>
+        <button onclick="goTo('refer')" style="background:var(--lime);color:var(--navy);border:none;padding:16px 40px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:all .2s;">Get My Referral Link →</button>
+      </div>
+
+      <!-- HAS REFERRAL — they already know the game -->
+      <div id="ok-has-ref" style="display:none;">
+        <div style="font-size:18px;color:var(--grey-l);margin-bottom:8px;">You were referred — <strong style="color:var(--lime);">now get your own link.</strong></div>
+        <div style="font-size:15px;color:var(--grey);margin-bottom:24px;">Every Kiwi you refer counts. Most signups before launch wins a free year. Set your name and grab your link below.</div>
+        <div style="max-width:380px;margin:0 auto 24px;text-align:left;">
+          <input id="display-name-ref" type="text" placeholder="Your name for the leaderboard (optional)" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:12px 16px;font-family:'Barlow',sans-serif;font-size:14px;color:var(--white);outline:none;border-radius:4px;" />
+        </div>
+        <button onclick="goTo('refer')" style="background:var(--lime);color:var(--navy);border:none;padding:16px 40px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:all .2s;">Get My Referral Link →</button>
+      </div>
     </div>
     <p class="wl-note">No spam. No commitment. Just first access when we launch.</p>
   </div>
@@ -577,7 +607,7 @@ nav .nlinks{display:none;}
 </footer>
 
 <div class="sticky-cta" id="sticky-cta">
-  <div class="sticky-cta-txt"><strong id="sticky-count">11 Kiwis</strong>already on the waitlist</div>
+  <div class="sticky-cta-txt"><strong id="sticky-count">11 Kiwis</strong> on the waitlist</div>
   <button class="sticky-cta-btn" onclick="goTo('waitlist');document.getElementById('sticky-cta').style.display='none';">Join Waitlist</button>
 </div>
 
@@ -752,17 +782,26 @@ function signup() {
 
   var topPlatform = wlTopPick || '';
   var monthlySpend = document.getElementById('wl-spend') ? document.getElementById('wl-spend').value : '';
-  var displayName = document.getElementById('display-name') ? document.getElementById('display-name').value.trim() : '';
-  var refInput = document.getElementById('ref-input');
+  var dnEl = document.getElementById('display-name') || document.getElementById('display-name-ref');
+  var displayName = dnEl ? dnEl.value.trim() : '';
   var urlRef = new URLSearchParams(window.location.search).get('ref') || null;
-  var manualRef = refInput ? refInput.value.trim().toUpperCase() : null;
-  var finalRef = urlRef || manualRef || null;
+  var hiddenRef = document.getElementById('ref-input');
+  var finalRef = urlRef || (hiddenRef ? hiddenRef.value.trim().toUpperCase() : null) || null;
 
-  // Show success immediately
+  // Show correct success state
   var form = document.getElementById('wl-form');
   var ok = document.getElementById('wl-ok');
   if (form) form.style.display = 'none';
   if (ok) ok.style.display = 'block';
+  var noRef = document.getElementById('ok-no-ref');
+  var hasRef = document.getElementById('ok-has-ref');
+  if (finalRef) {
+    if (noRef) noRef.style.display = 'none';
+    if (hasRef) hasRef.style.display = 'block';
+  } else {
+    if (noRef) noRef.style.display = 'block';
+    if (hasRef) hasRef.style.display = 'none';
+  }
 
   // Post to Worker
   fetch(WORKER_URL + '/signup', {
@@ -874,10 +913,36 @@ function updateReceipt(){
   document.getElementById('sc-yr').textContent = '$'+(sM*12).toFixed(0)+'/yr';
 }
 
+function saveName() {
+  var nameEl = document.getElementById('leaderboard-name');
+  var msgEl = document.getElementById('name-saved-msg');
+  if (!nameEl || !nameEl.value.trim()) return;
+  var displayNameVal = nameEl.value.trim();
+  // Get ref link to extract ref code
+  var rl = document.getElementById('ref-link');
+  var refCode = rl ? rl.value.replace('streamstack.co.nz/ref/', '').trim() : '';
+  if (!refCode || refCode === 'YOURCODE') {
+    if (msgEl) { msgEl.textContent = 'Sign up first to save your name.'; msgEl.style.color = '#FF6B6B'; msgEl.style.display = 'block'; }
+    return;
+  }
+  // Save via Worker - update display_name for this ref code
+  fetch(WORKER_URL + '/signup', {
+    method: 'POST', mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ref_code_update: refCode, display_name: displayNameVal })
+  }).catch(function(){});
+  if (msgEl) { msgEl.textContent = '✓ Name saved! You are on the leaderboard.'; msgEl.style.color = 'var(--lime)'; msgEl.style.display = 'block'; }
+  nameEl.disabled = true;
+  document.querySelector('#name-set-box button').style.display = 'none';
+}
+
 document.addEventListener('DOMContentLoaded', function(){
   var urlParams = new URLSearchParams(window.location.search);
   var refCode = urlParams.get('ref');
-  if (refCode) { var ri=document.getElementById('ref-input'); if(ri) ri.value=refCode; }
+  if (refCode) {
+    var ri = document.getElementById('ref-input'); if(ri) ri.value = refCode;
+    var pill = document.getElementById('ref-pill'); if(pill) pill.style.display = 'flex';
+  }
   animCount(count); setTimeout(bar, 700); fetchCount(); updateTierLabel(); loadLeaderboard(); updateReceipt();
   var emailEl = document.getElementById('email');
   if (emailEl) emailEl.addEventListener('keypress', function(e){ if(e.key==='Enter') signup(); });
