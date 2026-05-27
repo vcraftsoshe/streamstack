@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waitlist Wars &middot; StreamStack NZ</title>
+<meta name="description" content="Think your community is the most loyal in NZ? Prove it. StreamStack Waitlist Wars.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0e0d1f;font-family:'Inter',sans-serif;color:#f0eeff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.top-bar{height:3px;display:flex}
+.tb1{background:#7c6fff;flex:0.62}
+.tb2{background:#e05070;flex:0.38}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.07);max-width:740px;margin:0 auto;width:100%}
+.nav-wrap{border-bottom:1px solid rgba(255,255,255,0.07)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:#fff}
+.logo span{color:#7c6fff}
+.back{font-size:12px;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:5px}
+.back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.page{max-width:740px;margin:0 auto;padding:0 1.5rem 5rem}
+.hero{padding:2.5rem 0 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#1e1c42;border:1px solid #332f7a;border-radius:30px;padding:5px 14px;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#9088ff;margin-bottom:1.5rem}
+.dot{width:5px;height:5px;border-radius:50%;background:#7c6fff;flex-shrink:0}
+.headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,5.5rem);line-height:0.92;letter-spacing:2px;margin-bottom:1.25rem;padding-left:14px;border-left:3px solid #7c6fff}
+.headline .w1,.headline .w3{color:#fff;display:block}
+.headline .w2{color:#7c6fff;display:block}
+.sub1{font-size:15px;color:#ece8ff;margin-bottom:0.6rem}
+.sub2{font-size:15px;color:rgba(255,255,255,0.45);margin-bottom:0.6rem}
+.sub3{font-size:15px;font-weight:700;color:#ece8ff;margin-bottom:1rem}
+.byline{font-size:13px;padding-bottom:1.75rem;border-bottom:1px solid rgba(255,255,255,0.07)}
+.byline strong{color:#7c6fff}
+.byline span{color:rgba(255,255,255,0.35)}
+.section{padding:2rem 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.section:last-child{border-bottom:none}
+.slabel{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:1.25rem;display:flex;align-items:center;gap:8px}
+.slabel::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07)}
+.matters-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.25rem}
+.mcard{border-radius:12px;padding:1rem 1.1rem}
+.mcard.purple{background:#141230;border:1px solid #332f7a}
+.mcard.gold{background:#2a2008;border:1px solid #5a4a10}
+.mcard-big{font-size:2rem;font-weight:900;line-height:1;margin-bottom:4px}
+.mcard.purple .mcard-big{color:#7c6fff}
+.mcard.gold .mcard-big{color:#f5c842}
+.mcard-title{font-size:12px;font-weight:700;color:#fff;margin-bottom:3px}
+.mcard-sub{font-size:11px;color:rgba(255,255,255,0.35)}
+.genuine{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.75}
+.genuine strong{color:rgba(255,255,255,0.8)}
+.crowns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.crown{border-radius:14px;overflow:hidden}
+.crown.loyal{border:1px solid #332f7a}
+.crown.loud{border:1px solid #5a1530}
+.crown-head{padding:1rem 1.1rem 0.9rem}
+.crown.loyal .crown-head{background:#1c1a40}
+.crown.loud .crown-head{background:#24101a}
+.crown-body{padding:0.85rem 1.1rem 1rem}
+.crown.loyal .crown-body{background:#0f0e28}
+.crown.loud .crown-body{background:#180a12}
+.crown-icon{font-size:1.8rem;margin-bottom:0.5rem;line-height:1}
+.crown-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.loyal .crown-tag{color:#9088ff}
+.loud .crown-tag{color:#e05070}
+.crown h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:0.5rem}
+.crown p{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6;margin-bottom:0.7rem}
+.metric-pill{display:inline-block;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px}
+.loyal .metric-pill{background:#16144a;color:#9088ff;border:1px solid #332f7a}
+.loud .metric-pill{background:#280e18;color:#e05070;border:1px solid #5a1530}
+.steps{display:flex;flex-direction:column}
+.step{display:flex;gap:14px;align-items:flex-start;padding:0.9rem 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.step:last-child{border-bottom:none}
+.step-num{min-width:36px;height:36px;border-radius:8px;background:#1e1c42;border:1px solid #332f7a;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#7c6fff;flex-shrink:0}
+.step-bullet{font-size:20px;color:#7c6fff;flex-shrink:0;min-width:20px;padding-top:2px}
+.step-body strong{display:block;font-size:13px;font-weight:700;color:#fff;margin-bottom:3px}
+.step-body p{font-size:12px;color:rgba(255,255,255,0.4);margin:0;line-height:1.55}
+.ref-url{color:#7c6fff;font-weight:700}
+.prize-wrap{background:#2a2008;border:1px solid #5a4a10;border-radius:14px;overflow:hidden;position:relative}
+.prize-bar{width:3px;position:absolute;left:0;top:0;bottom:0;background:#f5c842}
+.prize-inner{padding:1.25rem 1.25rem 1.25rem 1.6rem}
+.prize-title{font-size:12px;font-weight:700;color:#f5c842;margin-bottom:0.75rem;letter-spacing:1px;text-transform:uppercase}
+.prize-divider{height:1px;background:rgba(245,200,66,0.15);margin-bottom:0.85rem}
+.prize-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:0.7rem}
+.prize-item:last-child{margin-bottom:0}
+.prize-dot{width:5px;height:5px;border-radius:50%;background:#f5c842;margin-top:6px;flex-shrink:0}
+.prize-item strong{display:block;font-size:13px;color:#fff;margin-bottom:1px}
+.prize-item p{font-size:12px;color:rgba(255,255,255,0.4);margin:0}
+.no-cash{margin-top:1rem;font-size:11px;color:rgba(245,200,66,0.3);font-style:italic}
+.lb-point{background:#141230;border:1px solid #332f7a;border-radius:12px;padding:1rem 1.1rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.lb-point strong{display:block;font-size:13px;color:#fff;margin-bottom:3px}
+.lb-point p{font-size:12px;color:rgba(255,255,255,0.35);margin:0}
+.lb-arrow{width:32px;height:32px;border-radius:50%;background:#1e1c42;border:1px solid #332f7a;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lb-arrow svg{width:14px;height:14px;stroke:#7c6fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cta-block{background:#1e1c42;border:1px solid #332f7a;border-radius:16px;padding:2rem;text-align:center}
+.cta-block h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;color:#fff;margin-bottom:0.5rem}
+.cta-block p{font-size:14px;color:rgba(255,255,255,0.45);margin-bottom:1.5rem;line-height:1.7}
+.cta-btn{display:inline-block;background:#7c6fff;color:#fff;font-size:15px;font-weight:700;padding:14px 36px;border-radius:10px;transition:background 0.2s}
+.cta-btn:hover{background:#9585ff}
+.cta-note{font-size:11px;color:rgba(255,255,255,0.2);margin-top:1rem;line-height:1.6}
+footer{border-top:1px solid rgba(255,255,255,0.06);padding:2.5rem 1.5rem;max-width:740px;margin:0 auto}
+.foot-text{font-size:11px;color:rgba(255,255,255,0.15);line-height:1.8;text-align:center}
+.foot-text a{color:rgba(124,111,255,0.5)}
+@media(max-width:520px){
+  .crowns,.matters-grid{grid-template-columns:1fr}
+  .headline{font-size:3rem}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar"><div class="tb1"></div><div class="tb2"></div></div>
+
+<div class="nav-wrap">
+<nav>
+  <a href="https://streamstack.co.nz" class="logo">Stream<span>Stack</span> NZ</a>
+  <a href="https://streamstack.co.nz" class="back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to main site
+  </a>
+</nav>
+</div>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="eyebrow"><div class="dot"></div>Waitlist Wars &middot; NZ Only</div>
+    <div class="headline">
+      <span class="w1">Who's got</span>
+      <span class="w2">NZ's most</span>
+      <span class="w3">loyal crew?</span>
+    </div>
+    <p class="sub1">I am one mum from Tauranga doing this completely on my own. No investors. No team. No ad budget. Every spare hour I have goes into this.</p>
+    <p class="sub2">I know you get asked to promote things all the time. This is different. Your followers are paying too much for streaming every single month and I am trying to fix it. $200+ back in their pocket every year. For a lot of families that is a week of groceries.</p>
+    <p class="sub3">I need real people behind me or this does not work. Not bots. Not bought numbers. Real Kiwis referred by someone they actually trust. That could be you. And if it is, your community will know it.</p>
+    <p class="byline"><strong>Vanessa,</strong> <span>Founder &middot; StreamStack NZ &middot; Tauranga, Bay of Plenty</span></p>
+  </div>
+
+  <div class="section">
+    <div class="slabel">Why this matters</div>
+    <div class="matters-grid">
+      <div class="mcard purple">
+        <div class="mcard-big">$200+</div>
+        <div class="mcard-title">saved per year</div>
+        <div class="mcard-sub">per household on streaming</div>
+      </div>
+      <div class="mcard gold">
+        <div class="mcard-big">1 week</div>
+        <div class="mcard-title">of groceries</div>
+        <div class="mcard-sub">for a lot of Kiwi families</div>
+      </div>
+    </div>
+    <p class="genuine">$200 a year might sound small. But for families trying to keep the luxuries that make home feel like home, <strong>that's real money.</strong> I want people on this list who genuinely want this. Not numbers. <strong>Real Kiwis.</strong></p>
+  </div>
+
+  <div class="section">
+    <div class="slabel">Two crowns. Two different wins.</div>
+    <div class="crowns">
+      <div class="crown loyal">
+        <div class="crown-head">
+          <div class="crown-icon">&#x1F451;</div>
+          <div class="crown-tag">The Loyal Crown</div>
+        </div>
+        <div class="crown-body">
+          <h3>Most trusted voice</h3>
+          <p>Highest conversion rate. Signups divided by link clicks. A tight 3k community beats a passive 300k every time.</p>
+          <span class="metric-pill">Signups / clicks</span>
+        </div>
+      </div>
+      <div class="crown loud">
+        <div class="crown-head">
+          <div class="crown-icon">&#x1F4E3;</div>
+          <div class="crown-tag">The Loud Crown</div>
+        </div>
+        <div class="crown-body">
+          <h3>Biggest reach</h3>
+          <p>Raw signups. Brutal. Public. The creator who drives the most verified Kiwis to the list wins. Full stop.</p>
+          <span class="metric-pill">Total signups</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="slabel">How your code works</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <strong>10 seconds to sign up</strong>
+          <p>Name, handle, platform, email. No payment, no commitment, no catch.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <strong>You get a unique referral link</strong>
+          <p>Yours only: <span class="ref-url">streamstack.co.nz?ref=vanessa</span></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <strong>Share wherever your community lives</strong>
+          <p>Bio, stories, posts, podcast, newsletter. Go wild.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <strong>Every Kiwi through your link scores a point</strong>
+          <p>Each verified NZ signup updates your rank on the live leaderboard instantly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="slabel">The rules</div>
+    <div class="steps">
+      <div class="step"><div class="step-bullet">&bull;</div><div class="step-body"><strong>I run this. My call is final.</strong><p>Rules don't change once the competition opens. No debate.</p></div></div>
+      <div class="step"><div class="step-bullet">&bull;</div><div class="step-body"><strong>NZ signups only.</strong><p>Only verified New Zealand emails count toward your score.</p></div></div>
+      <div class="step"><div class="step-bullet">&bull;</div><div class="step-body"><strong>Fakes get wiped.</strong><p>Suspicious or duplicate signups are removed without warning.</p></div></div>
+      <div class="step"><div class="step-bullet">&bull;</div><div class="step-body"><strong>Leaderboard is public.</strong><p>Lives on streamstack.co.nz. Everyone sees everyone's rank in real time.</p></div></div>
+      <div class="step"><div class="step-bullet">&bull;</div><div class="step-body"><strong>Closes at launch.</strong><p>Boards freeze when StreamStack goes live. Crowns awarded.</p></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="slabel">The prize</div>
+    <div class="prize-wrap">
+      <div class="prize-bar"></div>
+      <div class="prize-inner">
+        <div class="prize-title">&#x1F3C6; Both winners get this</div>
+        <div class="prize-divider"></div>
+        <div class="prize-item"><div class="prize-dot"></div><div><strong>Permanent founding credit</strong><p>Named on StreamStack.co.nz as a Waitlist Wars champion. Forever.</p></div></div>
+        <div class="prize-item"><div class="prize-dot"></div><div><strong>Free first year of StreamStack</strong><p>On the house when we launch.</p></div></div>
+        <div class="prize-item"><div class="prize-dot"></div><div><strong>Early access</strong><p>In before the public opens.</p></div></div>
+        <div class="prize-item"><div class="prize-dot"></div><div><strong>Bragging rights</strong><p>Proof your community shows up when it counts. That is everything.</p></div></div>
+        <p class="no-cash">No cash. No vouchers. No gift cards. Clout only.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="slabel">Live leaderboard</div>
+    <a href="https://streamstack.co.nz#refer" class="lb-point">
+      <div>
+        <strong>Watch the rankings move in real time</strong>
+        <p>Leaderboard lives on the main StreamStack site</p>
+      </div>
+      <div class="lb-arrow">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </a>
+  </div>
+
+  <div class="section">
+    <div class="cta-block">
+      <h2>Ready to enter?</h2>
+      <p>Sign up to the waitlist and you'll get your unique referral link instantly.<br>Share it. Every Kiwi through your link is a point on the leaderboard.</p>
+      <a href="https://streamstack.co.nz#waitlist" class="cta-btn">Get my referral link</a>
+      <p class="cta-note">Takes 10 seconds. NZ creators only. Your stats appear publicly on the leaderboard.<br>No cash prize. Competition closes at StreamStack launch.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p class="foot-text">
+    StreamStack NZ is a waitlist only. No service is currently live. No agreements have been signed with any streaming platform.<br>
+    All savings figures are indicative and subject to negotiation outcomes. Prize subject to StreamStack successfully launching.<br><br>
+    <a href="https://streamstack.co.nz">streamstack.co.nz</a> &nbsp;&middot;&nbsp;
+    <a href="mailto:streamstack2026@gmail.com">streamstack2026@gmail.com</a> &nbsp;&middot;&nbsp;
+    <a href="https://streamstack.co.nz/privacy.html">Privacy Policy</a>
+  </p>
+</footer>
+
+</body>
+</html>
